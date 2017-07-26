@@ -2,18 +2,24 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>SP500 Prediction App</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+		<title>Being insulting?</title>
+		<link rel=stylesheet type=text/css href='{{ url_for('static',filename='style_lulu.css')}}'>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	</head>
 	<body>
 		<div>
-			<h1>SP500 Prediction App</h1>
-			<form action = “/getdelay” method=“POST”>
-				<p> Select Time Frame:<input name=“Time Frame” type =“text” value=“1 month” /> </p>
-				<p> <input type =“submit” value=“Check Delay” /> </p>
-			</form>
+  			<h1>Being insulting?</h1>
+			<input type="text" id="input1" />
+			<button onclick="myJsFunction()"></button>
+			<script type="text/javascript">
+ 			function myJsFunction(){
+			    var text=document.getElementById('input1').value;
+ 			}
+			</script>
+			<form action = "/gettext" method="POST">
+                            <p> Insert sentence:<input name="text" type ="text" value="here" /> </p>
+                            <p> <input type ="submit" value="check it!" /> </p>
+                        </form>
 		</div>
 	</body>
 </html>
