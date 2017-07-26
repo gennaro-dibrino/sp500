@@ -2,13 +2,13 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Being insulting?</title>
+		<title>SP500 Prediction App</title>
 		<link rel=stylesheet type=text/css href='{{ url_for('static',filename='style_lulu.css')}}'>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	</head>
 	<body>
 		<div>
-  			<h1>Being insulting?</h1>
+  			<h1>SP500 Prediction App</h1>
 			<input type="text" id="input1" />
 			<button onclick="myJsFunction()"></button>
 			<script type="text/javascript">
@@ -16,9 +16,9 @@
 			    var text=document.getElementById('input1').value;
  			}
 			</script>
-			<form action = "/gettext" method="POST">
-                            <p> Insert sentence:<input name="text" type ="text" value="here" /> </p>
-                            <p> <input type ="submit" value="check it!" /> </p>
+			<form action = "/getframe" method="POST">
+                            <p> Timeframe: <input name="text" type ="text" value="here" /> </p>
+                            <p> <input type ="submit" value="check the trend" /> </p>
                         </form>
 		</div>
 	</body>
