@@ -14,7 +14,7 @@ feature_names = iris_df.columns[0:-1].values.tolist()
 # Create the main plot
 def create_figure(current_feature_name, bins):
 	p = Histogram(iris_df, current_feature_name, title=current_feature_name, color='Species', 
-	 	bins=bins, legend='top_right', width=600, height=400)
+	 	bins=bins, legend='top_right', width=600, height=400, tools='pan,wheel_zoom,box_zoom,reset,resize,previewsave')
 
 	# Set the x axis label
 	p.xaxis.axis_label = current_feature_name
