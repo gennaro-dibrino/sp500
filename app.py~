@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 import pandas as pd
 from bkcharts import Histogram #bokeh.charts
 from bokeh.embed import components
+#from bokeh.plotting import show
 
 app = Flask(__name__)
 
@@ -13,7 +14,7 @@ feature_names = iris_df.columns[0:-1].values.tolist()
 # Create the main plot
 def create_figure(current_feature_name, bins):
 	p = Histogram(iris_df, current_feature_name, title=current_feature_name, color='Species', 
-	 	bins=bins, legend='top_right', width=600, height=400)
+	 	bins=bins, legend='top_right', width=600, height=400, tools='pan,wheel_zoom,box_zoom,reset,resize,previewsave')
 
 	# Set the x axis label
 	p.xaxis.axis_label = current_feature_name
@@ -41,4 +42,4 @@ def index():
 # With debug=True, Flask server will auto-reload 
 # when there are code changes
 if __name__ == '__main__':
-	app.run(port=5000, debug=True)
+	app.run(port=33507, debug=False) #5000
