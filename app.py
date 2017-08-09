@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 # Load the Data Set
 cur_dir = os.path.dirname(__file__)
-data = dill.load(open('dill_objects/model/test_me_AB_grid_2010.dill', 'rb'))
+data = dill.load(open('dill_objects/model/test_me_AB_grid_2010.dill', 'r'))
 #pd.read_csv(names=["Sepal Length", "Sepal Width", "Petal Length", "Petal Width", "Species"])
 feature_names = data.columns.values.tolist()
 
