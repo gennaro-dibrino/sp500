@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>sp_work.dill</title>
+  <title>test.dill</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -23,7 +23,7 @@
     }
   </style>
   <div id="container">
-    <iframe id="iframe" sandbox="allow-scripts" src="/files/Downloads/TDI_DO_download_all/vagrant/datacourse/Capstone/sp_work.dill"></iframe>
+    <iframe id="iframe" sandbox="allow-scripts" src="/files/Downloads/TDI_DO_download_all/vagrant/datacourse/Capstone/test.dill"></iframe>
   </div>
 </body>
 
