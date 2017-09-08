@@ -1,39 +1,15 @@
-# Flask on Heroku
+# Financial Index Predictor App
 
-This project is intended to help you tie together some important concepts and
-technologies from the 12-day course, including Git, Flask, JSON, Pandas,
-Requests, Heroku, and Bokeh for visualization.
+The aim of this project is to build a Heroku web app allowing the user to perform some exploratory analysis of 
+some major financial indices, as well as to predict the future trend of such indices. The prediction is carried out
+using a machine learning model for time series, which is the core of this project.
+The model was selected by minimizing AIC, which appears to be a good way to prevent overfitting.
+In a way, the selection mimics the `auto.arima` function available in R.
 
-The repository contains a basic template for a Flask configuration that will
-work on Heroku.
+## Some details
 
-A [finished example](https://lemurian.herokuapp.com) that demonstrates some basic functionality.
-
-## Step 1: Setup and deploy
-- Git clone the existing template repository.
-- `Procfile`, `requirements.txt`, `conda-requirements.txt`, and `runtime.txt`
-  contain some default settings.
-- There is some boilerplate HTML in `templates/`
-- Create Heroku application with `heroku create <app_name>` or leave blank to
-  auto-generate a name.
-- (Suggested) Use the [conda buildpack](https://github.com/kennethreitz/conda-buildpack).
-  If you choose not to, put all requirements into `requirements.txt`
-
-  `heroku config:add BUILDPACK_URL=https://github.com/kennethreitz/conda-buildpack.git`
-- *Question*: What are the pros and cons of using conda vs. pip?
-- Deploy to Heroku: `git push heroku master`
-- You should be able to see your site at `https://<app_name>.herokuapp.com`
-- A useful reference is the Heroku [quickstart guide](https://devcenter.heroku.com/articles/getting-started-with-python-o).
-
-## Step 2: Get data from API and put it in pandas
-- Use the `requests` library to grab some data from a public API. This will
-  often be in JSON format, in which case `simplejson` will be useful.
-- Build in some interactivity by having the user submit a form which determines which data is requested.
-- Create a `pandas` dataframe with the data.
-
-## Step 3: Use Bokeh to plot pandas data
-- Create a Bokeh plot from the dataframe.
-- Consult the Bokeh [documentation](http://bokeh.pydata.org/en/latest/docs/user_guide/embed.html)
-  and [examples](https://github.com/bokeh/bokeh/tree/master/examples/embed).
-- Make the plot visible on your website through embedded HTML or other methods - this is where Flask comes in to manage the interactivity and display the desired content.
-- Some good references for Flask: [This article](https://realpython.com/blog/python/python-web-applications-with-flask-part-i/), especially the links in "Starting off", and [this tutorial](https://github.com/bev-a-tron/MyFlaskTutorial).
+The whole project, from the initial exploratory analysis to the web app deployment was carried out using Python.
+In particular, the data are downloaded in real time from Yahoo Finance using the `pandas_datareader` module, the
+functions needed to fit the model come from Python's `statsmodels`, and all data frames and series are handled using
+`pandas`. Finally, the visualization uses Python's `bokeh` and the interaction of the Python and HTML codes is managed
+using Python's `flask`. 

@@ -37,7 +37,7 @@ def fill_bf(dataf, column_list): #fills NaNs
         dataf.loc[:,col] = dataf.loc[:,col].fillna(method='bfill')
     return dataf
     
-def fit_to_frame(series, order=(5,2,0), pred_time=10):
+def fit_to_frame(series, order=(1,1,1), pred_time=250): #order was (5,2,0))
 	arima = smt.SARIMAX(series, trend='c', order=order)
 	arima_fit = arima.fit()
 	ARIMA_pred = arima_fit.get_prediction(start=bday_diff(-1), dynamic=bday_diff(-1), end=bday_diff(pred_time)).predicted_mean
