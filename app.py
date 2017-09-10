@@ -79,7 +79,7 @@ def create_figure(data, current_feature='Actual', tpl=None):
 					},
 					#display a tooltip whenever the cursor is vertically in line with a glyph
 					mode='vline')
-		p = figure(x_axis_type='datetime', title='Index and Prediction', plot_width=1000, plot_height=300, \
+		p = figure(x_axis_type='datetime', title='SP500 Index and Prediction', plot_width=1000, plot_height=300, \
 			tools=[hover, crosshair, 'pan','wheel_zoom','box_zoom','xbox_select','previewsave','reset'], \
 			active_drag='box_zoom', active_scroll='wheel_zoom', active_inspect=hover, \
 			responsive=True)
@@ -110,7 +110,7 @@ def create_figure(data, current_feature='Actual', tpl=None):
 					# use default 'numeral' formatter for other fields
 					},
 					mode='vline')
-		p = figure(x_axis_type='datetime', title='Index', plot_width=1000, plot_height=300, \
+		p = figure(x_axis_type='datetime', title='SP500 Index', plot_width=1000, plot_height=300, \
 			tools=[hover, crosshair, 'pan','wheel_zoom','box_zoom','xbox_select','previewsave','reset'], \
 			active_drag='box_zoom', active_scroll='wheel_zoom', active_inspect=hover, \
 			responsive=True)
