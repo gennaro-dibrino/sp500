@@ -99,11 +99,12 @@ body, html {
     <div class="w3-row m6">
       <h3 class="w3-center w3-xxlarge">TIME SERIES MODELING</h3>
       <p class="w3-xlarge">ARIMA models are a general class of models for time series analysis. They apply also to time series with trends.</p>
-      <p class="w3-xlarge">The model used here was selected using a Python script combining the ARIMA tools available in Python and a custom function,<br>minimizing a certain Information Criterion. This ensured the robustness of the model that was eventually selected.</p>
-      <p class="w3-xlarge">The Python script returned a triple <span class="w3-text-blue">(p,d,q)</span> consisting of
-      	<p class="w3-xlarge"><i class="fa fa-cog"></i> the number <span class="w3-text-blue">p</span> of past observations to be considered in the prediction,</p>
-      	<p class="w3-xlarge"><i class="fa fa-cog"></i> a differencing order <span class="w3-text-blue">d</span> for the time series,</p>
-      	<p class="w3-xlarge"><i class="fa fa-cog"></i> the number of moving average components <span class="w3-text-blue">q</span> to be included in the model.</p>
+      <p class="w3-xlarge">The model used here was selected using a Python script combining the ARIMA tools available in Python's <span class="w3-text-blue"><a href="http://www.statsmodels.org/stable/statespace.html#seasonal-autoregressive-integrated-moving-average-with-exogenous-regressors-sarimax">statsmodels</a></span>
+      and a custom function.<br>The function ensured robustness for the model that was eventually selected by minimizing a certain Information Criterion.</p>
+      <p class="w3-xlarge">The Python script returned an <span class="w3-text-blue">ARIMA(p,d,q)</span> model, where
+      	<p class="w3-xlarge"><i class="fa fa-cog"></i> <span class="w3-text-blue">p</span> is the number of past observations to be considered in the prediction,</p>
+      	<p class="w3-xlarge"><i class="fa fa-cog"></i> <span class="w3-text-blue">d</span> is the differencing order for the time series,</p>
+      	<p class="w3-xlarge"><i class="fa fa-cog"></i> <span class="w3-text-blue">q</span> is the number of moving average components to be included in the model.</p>
       </p>
     </div>
   </div>
@@ -115,7 +116,7 @@ body, html {
     <div class="w3-row m6">
       <h3 class="w3-center w3-xxlarge">REAL TIME PREDICTION</h3>
       <p class="w3-xlarge">Select "Actual" below for the past four years of history. Select "Model" to make a prediction for the next year.</p>
-      <p class="w3-xlarge">All the data is downloaded in real time from Yahoo! Finance and used to fit an ARIMA(1,1,1) model</p>
+      <p class="w3-xlarge">All the data is downloaded in real time from Yahoo! Finance and used to fit an ARIMA(1,1,1).</p>
       <form class="w3-container w3-card-4 w3-light-grey" action="/">
       	<select class="w3-select" name="feature_name">
       		{% for feature in feature_names %}

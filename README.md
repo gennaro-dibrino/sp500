@@ -9,7 +9,7 @@ In a way, the selection mimics the `auto.arima` function available in R.
 ## Some details
 
 The whole project, from the initial exploratory analysis to the web app deployment, was carried out using Python.
-In particular, the data are downloaded in real time from Yahoo Finance using the `pandas_datareader` module, the
+In particular, the data is downloaded in real time from Yahoo Finance using the `pandas_datareader` module, the
 functions needed to fit the model come from Python's `statsmodels`, and all data frames and series are handled using
 `pandas`. Finally, the visualization uses Python's `bokeh` and the interaction of the Python and HTML codes is managed
 using Python's `flask`. 
