@@ -89,7 +89,7 @@ def create_figure(data, current_feature='Actual', tpl=None):
         p.grid.grid_line_alpha=0.7
         p.xaxis.axis_label = 'Date'
         p.yaxis.axis_label = 'Point Value'
-        p.line('date', 'Model', line_width=4, color=col_dict[current_feature], legend=current_feature.lower(), \
+        p.line('date', 'Model', line_width=5, color=col_dict[current_feature], legend=current_feature.lower(), \
             source=source)
         p.line('date', 'Pred Lower Bound', line_width=1, color='purple', source=source)
         p.line('date', 'Pred Upper Bound', line_width=1, color='purple', source=source)
