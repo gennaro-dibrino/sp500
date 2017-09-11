@@ -15,9 +15,7 @@ from bokeh.embed import components
 import numpy as np
 from bokeh.layouts import gridplot
 from bokeh.plotting import figure, show, output_file, ColumnDataSource
-from bokeh.models import HoverTool, CrosshairTool, BoxAnnotation, Range1d, Legend
-#fix for ttp and w3css issue
-from collections import OrderedDict
+from bokeh.models import HoverTool, CrosshairTool, BoxAnnotation, Range1d
 
 app = Flask(__name__)
 
@@ -65,7 +63,7 @@ def fit_to_frame(series, order=(1,1,1), pred_time=250): #order was (5,2,0))
 # Create the main plot -- lineplot
 def create_figure(data, current_feature='Actual', tpl=None):
     col_dict = {'Model':'cyan', 'Actual':'green'}
-    TOOLS = ['hover', 'crosshair', 'pan','wheel_zoom','box_zoom','xbox_select','previewsave','reset']
+    TOOLS = ['crosshair', 'pan','wheel_zoom','box_zoom','previewsave','reset']
     if current_feature == 'Model':
         source = ColumnDataSource(data)
         p = figure(x_axis_type='datetime', title='SP500 Index and Prediction', plot_width=1000, plot_height=400, \
