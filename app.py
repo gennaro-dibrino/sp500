@@ -73,8 +73,8 @@ def create_figure(data, current_feature='Actual', tpl=None):
 				],
 				formatters={
 					"date" : 'datetime', # use 'datetime' formatter for 'date' field
-					'actual' : 'printf', # use 'printf' formatter for 'Actual' field
-					'model' : 'printf' # use 'printf' formatter for 'Model' field
+#					'actual' : 'printf', # use 'printf' formatter for 'Actual' field
+#					'model' : 'printf' # use 'printf' formatter for 'Model' field
 					# use default 'numeral' formatter for other fields
 					},
 					#display a tooltip whenever the cursor is vertically in line with a glyph
@@ -106,7 +106,7 @@ def create_figure(data, current_feature='Actual', tpl=None):
 				],
 				formatters={
 					"date" : 'datetime', # use 'datetime' formatter for 'date' field
-					'value' : 'printf'   # use 'printf' formatter for 'adj close' field
+#					'value' : 'printf'   # use 'printf' formatter for 'adj close' field
 					# use default 'numeral' formatter for other fields
 					},
 					mode='vline')

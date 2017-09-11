@@ -22,7 +22,7 @@ body, html {
 .bgimg-1 {
     background-position: center;
     background-size: cover;
-    background-image: none;
+    background-image: url(/static/wall-street-sepia.jpg);
     min-height: 100%;
 }
 .w3-bar .w3-button {
@@ -38,7 +38,7 @@ body, html {
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">
       <a href="#home" class="w3-bar-item w3-button"><i class="fa fa-home"></i> INTRO</a>
-      <a href="#goal" class="w3-bar-item w3-button"><i class="fa fa-money"></i> GOAL</a>
+      <a href="#goal" class="w3-bar-item w3-button"><i class="fa fa-line-chart"></i> GOAL</a>
       <a href="#model" class="w3-bar-item w3-button"><i class="fa fa-th"></i> MODEL</a>
       <a href="#visualization" class="w3-bar-item w3-button"><i class="fa fa-line-chart"></i> PREDICTION</a>
     </div>
@@ -61,55 +61,61 @@ body, html {
 
 <!-- Header with full-height image -->
 <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
-  <div class="w3-display-left w3-text-blue" style="padding:48px">
+  <div class="w3-display-bottomleft w3-text-aqua" style="padding:48px 48px 128px 48px">
     <span class="w3-jumbo w3-hide-small">Real Time S&amp;P 500 Prediction App</span>
   </div> 
-  <div class="w3-display-bottomleft w3-text-cyan w3-large" style="padding:24px 48px">
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  <div class="w3-display-bottomright w3-text-cyan w3-large" style="padding:24px 48px">
+    <a href="https://www.linkedin.com/in/gennaro-di-brino-16a25313b/"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
   </div>
 </header>
 
 <!-- Goal Section -->
 <div class="w3-container" style="padding:128px 16px" id="goal">
-  <h3 class="w3-center">BUSINESS GOAL</h3>
-  <p class="w3-center w3-large">Predicting the Standard &amp; Poor's 500 Index in Real Time</p>
+  <h3 class="w3-center w3-xxlarge">BUSINESS GOAL</h3>
+  <p class="w3-center w3-xxlarge">Predicting the <a href="http://us.spindices.com/indices/equity/sp-500">Standard &amp; Poor's 500 Index</a> in Real Time</p>
   <div class="w3-row-padding w3-center" style="margin-top:64px">
     <div class="w3-quarter">
       <i class="fa fa-play w3-margin-bottom w3-jumbo w3-center"></i>
-      <p class="w3-large">The S&amp;P 500 tracks 500 major companies listed in the US financial market. Each company's contribution to the index is weighted by market capitalization.</p>
+      <p class="w3-xlarge">The S&amp;P 500 tracks 500 major companies listed in the US financial market. Each company's contribution to the index is weighted by market capitalization.</p>
     </div>
     <div class="w3-quarter">
       <i class="fa fa-desktop w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">The S&amp;P 500 companies account for about 80&percnt; of the total US stock market capitalization.</p>
+      <p class="w3-xlarge">The S&amp;P 500 companies account for about 80&percnt; of the total US stock market capitalization.</p>
     </div>
     <div class="w3-quarter">
       <i class="fa fa-info w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">The S&amp;P 500 is widely regarded as the best single gauge of large-cap US equities and it could be thought of as a synthetic representation of the US economy.</p>
+      <p class="w3-xlarge">The S&amp;P 500 is widely regarded as the best single gauge of large-cap US equities and it could be thought of as a synthetic representation of the US economy.</p>
     </div>
     <div class="w3-quarter">
       <i class="fa fa-exclamation w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">A large number of financial products are linked to the index, and predicting its future trend in real time provides invaluable information.</p>
+      <p class="w3-xlarge">A large number of financial products are linked to the index, and predicting its future trend in real time provides invaluable information.</p>
     </div>
   </div>
 </div>
 
 <!-- Model Section -->
-<div class="w3-container w3-dark-grey w3-padding-64" id="model">
-  <div class="w3-row-padding">
+<div class="w3-container w3-light-grey" style="padding:128px 16px" id="model">
+  <div class="w3-row-padding w3-center">
     <div class="w3-row m6">
-      <h3>Time Series Modeling</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+      <h3 class="w3-center w3-xxlarge">TIME SERIES MODELING</h3>
+      <p class="w3-xlarge">ARIMA models are a general class of models for time series analysis. They apply also to time series with trends.</p>
+      <p class="w3-xlarge">The model used here was selected using a Python script combining the ARIMA tools available in Python and a custom function,<br>minimizing a certain Information Criterion. This ensured the robustness of the model that was eventually selected.</p>
+      <p class="w3-xlarge">The Python script returned a triple <span class="w3-text-blue">(p,d,q)</span> consisting of
+      	<p class="w3-xlarge"><i class="fa fa-cog"></i> the number <span class="w3-text-blue">p</span> of past observations to be considered in the prediction,</p>
+      	<p class="w3-xlarge"><i class="fa fa-cog"></i> a differencing order <span class="w3-text-blue">d</span> for the time series,</p>
+      	<p class="w3-xlarge"><i class="fa fa-cog"></i> the number of moving average components <span class="w3-text-blue">q</span> to be included in the model.</p>
+      </p>
     </div>
   </div>
 </div>
 
 <!-- Viz Section -->
-<div class="w3-container w3-light-grey" style="padding:128px 16px" id="visualization">
-  <div class="w3-row-padding">
+<div class="w3-container w3-dark-grey" style="padding:128px 16px" id="visualization">
+  <div class="w3-row-padding w3-center">
     <div class="w3-row m6">
-      <h3>Real Time Prediction</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+      <h3 class="w3-center w3-xxlarge">REAL TIME PREDICTION</h3>
+      <p class="w3-xlarge">Select "Actual" below for the past four years of history. Select "Model" to make a prediction for the next year.</p>
+      <p class="w3-xlarge">All the data is downloaded in real time from Yahoo! Finance and used to fit an ARIMA(1,1,1) model</p>
       <form class="w3-container w3-card-4 w3-light-grey" action="/">
       	<select class="w3-select" name="feature_name">
       		{% for feature in feature_names %}
@@ -134,7 +140,9 @@ body, html {
 <footer class="w3-center w3-black w3-padding-64">
   <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
   <div class="w3-xlarge w3-section">
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
+    <a href="https://www.python.org/" class="logo"><img src="/static/python.jpg" alt="Python" height="64"></a>
+    <a href="https://www.heroku.com/" class="logo"><img src="/static/heroku.svg" alt="Heroku" height="64"></a>
+    <a href="https://github.com/" class="logo"><img src="/static/git_logo.png" alt="GitHub" height="64"></a>
   </div>
   <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
 </footer>
