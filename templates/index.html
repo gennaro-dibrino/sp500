@@ -4,13 +4,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Financial Index Prediction App</title>
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
-	<link href="https://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.7.min.css" rel="stylesheet" type="text/css">
-	<script src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.7.min.js"></script>
-	<link href="https://cdn.pydata.org/bokeh/release/bokeh-0.12.7.min.css" rel="stylesheet" type="text/css">
-	<script src="https://cdn.pydata.org/bokeh/release/bokeh-0.12.7.min.js"></script>
+	<link href="https://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.9.min.css" rel="stylesheet" type="text/css">
+	<script src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.9.min.js"></script>
+	<link href="https://cdn.pydata.org/bokeh/release/bokeh-0.12.9.min.css" rel="stylesheet" type="text/css">
+	<script src="https://cdn.pydata.org/bokeh/release/bokeh-0.12.9.min.js"></script>
 </head>
 
 <style>
@@ -112,7 +113,7 @@ body, html {
 </div>
 
 <!-- Viz Section -->
-<div class="w3-container w3-dark-grey" style="padding:128px 16px" id="visualization">
+<div class="w3-container w3-dark-grey" style="padding:0px 16px" id="visualization"> <!-- style="padding:128px 16px" -->
   <div class="w3-row-padding w3-center">
     <div class="w3-row m6">
       <h3 class="w3-center w3-xxlarge">REAL TIME PREDICTION</h3>
@@ -132,12 +133,15 @@ body, html {
       	<input type="submit">
       </form>
     </div>
-    <div class="w3-row m6">
-      {{ script | indent(4) | safe }}
-      {{ div|safe }}
-    </div>
   </div>
 </div>
+
+<div class="container-fluid bg-3 text-center">    
+  <div class="row">
+      {{ script | indent(4) | safe }}
+      {{ div | safe }}
+  </div>
+</div><br>
 
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-64">

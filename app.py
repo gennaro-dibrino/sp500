@@ -63,13 +63,11 @@ def fit_to_frame(series, order=(1,1,1), pred_time=250): #order was (5,2,0))
 # Create the main plot -- lineplot
 def create_figure(data, current_feature='Actual', tpl=None):
     col_dict = {'Model':'cyan', 'Actual':'green'}
-    TOOLS = ['crosshair', 'pan','wheel_zoom','box_zoom','previewsave','reset']
+    TOOLS = ['hover', 'crosshair', 'pan','wheel_zoom','box_zoom','previewsave','reset']
     if current_feature == 'Model':
         source = ColumnDataSource(data)
         p = figure(x_axis_type='datetime', title='SP500 Index and Prediction', plot_width=1000, plot_height=400, \
-            tools=TOOLS, \
-            active_drag='box_zoom', active_scroll='wheel_zoom', active_inspect='crosshair', \
-            responsive=True)
+            tools=TOOLS, active_drag='box_zoom', active_scroll='wheel_zoom', active_inspect='hover', responsive=True)
         hover = p.select(HoverTool)
         hover.tooltips = [
             ("date", "@date{%Y-%m-%d}"),
@@ -98,9 +96,9 @@ def create_figure(data, current_feature='Actual', tpl=None):
     else:
         source = ColumnDataSource(data)
         p = figure(x_axis_type='datetime', title='SP500 Index', plot_width=1000, plot_height=400, \
-    	    tools=TOOLS, \
-    	    active_drag='box_zoom', active_scroll='wheel_zoom', active_inspect='crosshair', \
-    	    responsive=True)
+            tools=TOOLS, \
+            active_drag='box_zoom', active_scroll='wheel_zoom', active_inspect='hover', \
+            responsive=True)
         hover = p.select(HoverTool)
         hover.tooltips= [
             ("date", "@date{%Y-%m-%d}"),
@@ -108,15 +106,15 @@ def create_figure(data, current_feature='Actual', tpl=None):
             ]
         hover.mode = 'vline'
         hover.formatters={
-    	    "date" : 'datetime', # use 'datetime' formatter for 'date' field
-    	    'value' : 'printf'   # use 'printf' formatter for 'adj close' field
-    	    }
+            "date" : 'datetime', # use 'datetime' formatter for 'date' field
+            'value' : 'printf'   # use 'printf' formatter for 'adj close' field
+            }
         p.x_range = Range1d(data.index.min(), tpl[0][0])
         p.grid.grid_line_alpha=0.7
         p.xaxis.axis_label = 'Date'
         p.yaxis.axis_label = 'Point Value'
         p.line('date', 'Actual', line_width=6, color=col_dict[current_feature], legend=current_feature.lower(), \
-    	    source=source)
+            source=source)
         p.legend.location = 'bottom_right'
     return p
 
