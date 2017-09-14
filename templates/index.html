@@ -73,8 +73,8 @@ body, html {
 
 <!-- Goal Section -->
 <div class="w3-container" style="padding:128px 16px" id="goal">
-  <h3 class="w3-center w3-xxlarge">BUSINESS GOAL</h3>
-  <p class="w3-center w3-xxlarge">Predicting the <a href="http://us.spindices.com/indices/equity/sp-500">Standard &amp; Poor's 500 Index</a> in Real Time</p>
+  <h3 class="w3-center w3-xxlarge">GOAL</h3>
+  <p class="w3-center w3-xxlarge">Predicting the <a href="http://us.spindices.com/indices/equity/sp-500">Standard &amp; Poor's 500 Index</a> Adjusted Close in Real Time</p>
   <div class="w3-row-padding w3-center" style="margin-top:64px">
     <div class="w3-quarter">
       <i class="fa fa-play w3-margin-bottom w3-jumbo w3-center"></i>
@@ -113,13 +113,13 @@ body, html {
 </div>
 
 <!-- Viz Section -->
-<div class="w3-container w3-dark-grey" style="padding:0px 16px" id="visualization"> <!-- style="padding:128px 16px" -->
+<div class="w3-container w3-dark-grey" style="padding:96px 0px 8px 0px" id="visualization"> <!-- style="padding:128px 16px" -->
   <div class="w3-row-padding w3-center">
     <div class="w3-row m6">
       <h3 class="w3-center w3-xxlarge">REAL TIME PREDICTION</h3>
-      <p class="w3-xlarge">Select "Actual" below for the past four years of daily adjusted closing values. Select "Model" to make a prediction for next year.</p>
-      <p class="w3-xlarge">All the data is downloaded in real time from Yahoo! Finance and used to fit an ARIMA(1,1,1).</p>
-      <p class="w3-xlarge">The purple lines enclose the confidence region of the prediction.</p>
+      <p class="w3-xlarge"><i class="fa fa-info-circle"></i> Select "Actual" below for the past four years of daily adjusted closing values.<br>
+      <i class="fa fa-info-circle"></i> Select "Model" to make a prediction for the year starting from the next available value.<br>
+      <i class="fa fa-info-circle"></i> Use the zoom tools to explore the charts.</p>
       <form class="w3-container w3-card-4 w3-light-grey" action="/">
       	<select class="w3-select" name="feature_name">
       		{% for feature in feature_names %}
@@ -132,6 +132,7 @@ body, html {
       	</select>
       	<input type="submit">
       </form>
+      <p class="w3-xlarge">The SP500 data is downloaded from Yahoo! Finance and used to fit an ARIMA(1,1,1) in real time.</p>
     </div>
   </div>
 </div>

@@ -14,8 +14,9 @@ from bokeh.embed import components
 #the imports below were added for the line plot
 import numpy as np
 from bokeh.layouts import gridplot
-from bokeh.plotting import figure, show, output_file, ColumnDataSource
-from bokeh.models import HoverTool, CrosshairTool, BoxAnnotation, Range1d
+from bokeh.plotting import figure, show, ColumnDataSource
+from bokeh import plotting
+from bokeh.models import HoverTool, BoxAnnotation, Range1d
 
 app = Flask(__name__)
 
@@ -53,31 +54,28 @@ def fit_to_frame(series, order=(1,1,1), pred_time=250): #order was (5,2,0))
 	data['date'] = data.index.values
 	return data, ((actual_end, actual_end_val), (pred_start, pred_start_val))
 
-# Load the Data Set
-#cur_dir = os.path.dirname(__file__)
-#data = dill.load(open('dill_objects/model/sp500_train.dill', 'rb')) #rb for win
-#feature_names = ['adj_close', 'ARMA'] #data.columns.values.tolist()
-#feature_names = data.columns.values.tolist()
-#col_dict = {'adj_close':'#A6CEE3', 'ARMA':'#7FC97F'}
-
 # Create the main plot -- lineplot
 def create_figure(data, current_feature='Actual', tpl=None):
     col_dict = {'Model':'cyan', 'Actual':'green'}
     TOOLS = ['hover', 'crosshair', 'pan','wheel_zoom','box_zoom','previewsave','reset']
     if current_feature == 'Model':
         source = ColumnDataSource(data)
-        p = figure(x_axis_type='datetime', title='SP500 Index and Prediction', plot_width=1000, plot_height=400, \
+        p = figure(x_axis_type='datetime', title='SP500 Index and Prediction', plot_width=1000, plot_height=300, \
             tools=TOOLS, active_drag='box_zoom', active_scroll='wheel_zoom', active_inspect='hover', responsive=True)
         hover = p.select(HoverTool)
         hover.tooltips = [
             ("date", "@date{%Y-%m-%d}"),
             ("model", "@Model{0.00}"),
+            ("confidence+", "@{Pred Upper Bound}{0.00}"),
+            ("confidence-", "@{Pred Lower Bound}{0.00}"),
             ('actual', '@Actual{0.00}')
             ]
         hover.mode = 'vline'
         hover.formatters = {"date" : 'datetime', # use 'datetime' formatter for 'date' field
             'actual' : 'printf', # use 'printf' formatter for 'Actual' field
-            'model' : 'printf' # use 'printf' formatter for 'Model' field
+            'model' : 'printf', # use 'printf' formatter for 'Model' field
+            'confidence+' : 'printf',
+            'confidence-' : 'printf'
             }
         p.x_range = Range1d(data.index.min(), data.index.max())
         box = BoxAnnotation(left=tpl[0][0], fill_color='gray', fill_alpha=0.2)
@@ -95,7 +93,7 @@ def create_figure(data, current_feature='Actual', tpl=None):
         p.legend.location = 'bottom_right'
     else:
         source = ColumnDataSource(data)
-        p = figure(x_axis_type='datetime', title='SP500 Index', plot_width=1000, plot_height=400, \
+        p = figure(x_axis_type='datetime', title='SP500 Index', plot_width=1000, plot_height=300, \
             tools=TOOLS, \
             active_drag='box_zoom', active_scroll='wheel_zoom', active_inspect='hover', \
             responsive=True)
