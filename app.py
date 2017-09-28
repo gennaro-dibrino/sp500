@@ -75,7 +75,7 @@ def create_figure(data, current_feature='Actual', tpl=None):
         	        'confidence-' : 'printf'
         	        }
         	        )
-        TOOLS = [hover, 'crosshair', 'pan','wheel_zoom','box_zoom','previewsave','reset']
+        TOOLS = [hover, 'pan','wheel_zoom','box_zoom','previewsave','reset']
         p = figure(x_axis_type='datetime', title='SP500 Index and Prediction', plot_width=1000, plot_height=300, \
             tools=TOOLS, active_drag='box_zoom', active_scroll='wheel_zoom', responsive=True) #, active_inspect='hover'
         p.x_range = Range1d(data.index.min(), data.index.max())
@@ -96,7 +96,7 @@ def create_figure(data, current_feature='Actual', tpl=None):
         p.legend.location = 'bottom_right'
     else:
         source = ColumnDataSource(data)
-        TOOLS = ['hover', 'crosshair', 'pan','wheel_zoom','box_zoom','previewsave','reset']
+        TOOLS = ['hover', 'pan','wheel_zoom','box_zoom','previewsave','reset']
         p = figure(x_axis_type='datetime', title='SP500 Index', plot_width=1000, plot_height=300, \
             tools=TOOLS, \
             active_drag='box_zoom', active_scroll='wheel_zoom', active_inspect='hover', \
